@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+
+    <h1>Trabajando con objetos</h1>
+    <h2>José María Expósito Reyes 75160119Y</h2>
+    <script>
+
+        /* Creamos la fución constructora que permitirá crear objetos del tipo "Smartphone"
+        con sus argumentos para "marca", "modelo", "color" y "tamanio" */
+        function Smartphone(marca, modelo, color, tamanio){
+            this.marca = marca;
+            this.modelo = modelo;
+            this.color = color;
+            this.tamanio = tamanio;      
+
+            /* Esta función tomará un valor por argumento y lo mostrará dentro de una ventana
+            alert, en una frase donde también se muestran las propiedades "marca" y "modelo"
+            de un objeto */
+            function instalarAplicacion(apli){
+                alert("Aplicación "+apli+ " instalada con éxito en smartphone "+this.marca+" "+this.modelo);
+            }
+            /* Esta función tomará un valor por argumento y lo mostrará dentro de una ventana
+            alert, en una frase */
+            function enviarCorreo(mensa){
+                alert("Mensaje: "+mensa+" enviado con éxito");
+            }
+            /* Esta función tomará un valor por argumento y lo mostrará dentro de una ventana
+            alert, en una frase donde también se muestra la propiedade "tamanio" de un objeto */
+            function llamar(num){
+                alert("Llamando al "+num+" desde mi smartphone con tamaño "+this.tamanio+"\"");
+            }
+
+            this.instalarAplicacion=instalarAplicacion;
+            this.enviarCorreo=enviarCorreo;
+            this.llamar=llamar;
+            }
+        
+        /* Creamos una nueva funcionalidad para el objeto de tipo Smartphone
+        con el patrón de diseño "prototype". Esta mostrará en una ventana alert
+        una frase que muestra todas las propiedades del objeto desde el que se 
+        invoca */
+        Smartphone.prototype.obtenDatosSmartPhone=function obtenDatosSmartPhone(){
+            alert("La marca es: "+this.marca+". El modelo es: "+this.modelo+
+            ". El color es: "+this.color+". El tamaño es: "+this.tamanio+"\"");
+        };
+
+        // Instanciamos un objeto de tipo Smartphone llamado "miTelefono"
+        var miTelefono = new Smartphone("xiaomi","mi9T","negro","6.5");
+        
+        // Invocamos a las distintas funciones del objeto "miTelefono"
+        miTelefono.instalarAplicacion("Github");
+        miTelefono.enviarCorreo("aprendiendo JavaScript");
+        miTelefono.llamar("555669966");
+        miTelefono.obtenDatosSmartPhone();
+    </script>
+</body>
+</html>
