@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <h1>Trabajando con arrays</h1>
+    <p id="pares"></p>
+    <p id="impares"></p>
+    <p>José María Expósito Reyes 75160119Y</p>
+    <script>
+        /* Esta función determina si un número es Entero,
+        devolviendo true cuando lo es y false cuando no.*/
+        function esEntero(num){
+            if(isNaN(num)){
+                return false;
+            }else{
+                if(num%1==0){
+                    return true;
+                }else return false;
+            }
+        }
+        /* Esta función determina si un número es Par,
+        devolviendo true cuando lo es y false cuando no.*/
+        function pares(num){
+            return num%2==0;
+        }
+        /* Esta función determina si un número es Impar,
+        devolviendo true cuando lo es y false cuando no.*/
+        function impares(num){ 
+            return num%2!=0;
+        }
+        
+        /* Mientras valido sea false se solicita al usuario que 
+        ingrese un número entero y se evalúa.*/
+        var valido = false;
+        while(!valido){
+            var N = prompt("Introduzca un número entero");
+            if(N.length>0){
+                if(esEntero(N)){
+                    N = parseInt(N);
+                    valido = true;    
+                }
+            }
+        }
+        var enteros = new Array(N);     // Declaramos un array "enteros" de tamaño N.
+
+        // Este for va a recorrer el array "enteros"
+        for(i=0; i<enteros.length; i++){
+            var valido = false;
+            /* Mientras valido sea false se solicita al usuario que 
+            ingrese un número entero y se evalúa.*/
+            while(!valido){
+                var numero = prompt("Introduzca el número de posición "+i+
+                " (ha de ser un número entero)");
+                if(numero.length>0){
+                    if(esEntero(numero)){
+                        numero = parseInt(numero);  // Convertimos la cadena "numero" en un valor Entero.
+                        enteros[i]=numero;  // Asignamos el valor "numero" a la posición "i" del array enteros.
+                        valido = true;    
+                    }
+                }
+           }
+        }
+        console.log("Array sin ordenar: "+enteros); // Mostramos por consola el array "enteros".
+        enteros = enteros.sort((a,b)=>a-b);   // asignamos al array "enteros" el resultado de ordenar el array "enteros".
+        console.log("Array ordenado: "+enteros);    // Mostramos por consola el array "enteros" (ahora ordenado).
+        var pares = enteros.filter(pares);  // Asignamos a la variable "pares" el resultado de filtrar el array "enteros" con la función "pares".
+        document.getElementById("pares").innerHTML="Estos son los números pares ordenados de su array: "+pares;
+        var impares = enteros.filter(impares);  // Asignamos a la variable "impares" el resultado de filtrar el array "enteros" con la función "impares"-
+        document.getElementById("impares").innerHTML="Estos son los números impares ordenados de su array: "+impares;
+    </script>
+</body>
+</html>
