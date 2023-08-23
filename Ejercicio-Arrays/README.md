@@ -4,4 +4,4 @@ Tras eso se mostrará por pantalla los números pares e impares separados y orde
 Para ver el funcionamiento del ejercicio ir al enlace:
 http://jomaexp.atwebpages.com/DWEC/TAREA4/arrays.html
 
-El fichero "ficheros.rar" contiene todo lo necesario para replicar el ejercicio.
+El fichero "arrays.html" contiene todo lo necesario para replicar el ejercicio.
